@@ -22,8 +22,11 @@ class OMXPlayerGuiMixin(MediaPlayerGuiMixin):
         }
         for name, spec in _elements.items():
             self.config.register_element(name, spec)
-        self.media_player_manager(MAIN).install_player(OMXPlayer(MAIN, self), index=-1)
-        self.media_player_manager(BACKGROUND).install_player(OMXPlayer(BACKGROUND, self), index=-1)
+
+        mpm_main = self.media_player_manager(MAIN)
+        mpm_main.install_player(OMXPlayer(MAIN, mpm_main), index=-1)
+        mpm_bg = self.media_player_manager(BACKGROUND)
+        mpm_bg.install_player(OMXPlayer(BACKGROUND, mpm_bg), index=-1)
 
     def gui_setup(self):
         gui = super(MediaPlayerGuiMixin, self).gui_setup()
