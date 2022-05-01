@@ -18,7 +18,7 @@ class OMXPlayer(MediaPlayerBase):
             self._actual.target_container.width, self._actual.target_container.height,
         )
         self._player = OMXPlayerController(
-            filepath, geometry, self._actual.stop(), loop=loop,
+            filepath, geometry, self._actual.stop, loop=loop,
             layer=self.actual.config.video_dispmanx_layer,
             orientation=self.actual.config.orientation,
             dbus_name='org.mpris.MediaPlayer2.omxplayer{}'.format(self._idx)
