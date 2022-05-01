@@ -77,6 +77,7 @@ class OMXPlayerController(object):
             self._pstate = self._player.playback_status()
             self._player.quit()
             self._player = None
+            self._paused = True
             # print("Done pausing")
 
     def resume(self):
@@ -89,6 +90,7 @@ class OMXPlayerController(object):
         if self._pstate == "Playing":
             self._player.play()
         self._pstate = None
+        self._paused = False
         # print("Done resume")
 
     def set_geometry(self, x, y, width, height):
