@@ -18,7 +18,7 @@ class OMXPlayerGuiMixin(MediaPlayerGuiMixin):
         if not self.config.platform == 'rpi':
             return
         _elements = {
-            'video_dispmanx_layer': ElementSpec('video-rpi', 'dispmanx_video_layer', ItemSpec(int, fallback=-200)),
+            'video_dispmanx_layer': ElementSpec('video-rpi', 'dispmanx_video_layer', ItemSpec(int, fallback=4)),
         }
         for name, spec in _elements.items():
             self.config.register_element(name, spec)
